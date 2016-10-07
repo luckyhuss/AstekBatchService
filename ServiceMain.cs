@@ -79,18 +79,35 @@ namespace AstekBatchService
                     // set hour to current hour
                     dtEvent = new DateTime(DateTime.Today.Year, DateTime.Today.Month, DateTime.Today.Day, DateTime.Now.Hour, scheduledTask.Time.Minute, 0);
                 }
-                else
-                    if (!"Daily".Equals(scheduledTask.Frequency))
+                else if (!"Daily".Equals(scheduledTask.Frequency))
+                {                    
+                    DateTime plannedDate = new DateTime();
+                    if (DateTime.TryParse(scheduledTask.Frequency, out plannedDate))
                     {
-                        DayOfWeek plannedDay = (DayOfWeek)Enum.Parse(typeof(DayOfWeek), scheduledTask.Frequency);
+                        // specific date 07/10/2016
 
+                        // adjust time by -5min
+                        dtEvent = dtEvent.AddMinutes(-5);
+
+                        // check if today is not that day
+                        if (DateTime.Today != plannedDate)
+                        {
+                            // do not process this "date" task
+                            continue;
+                        }
+                    }
+                    else
+                    {
                         // therefore weekly tasks, check if day is correct
+                        DayOfWeek plannedDay = (DayOfWeek)Enum.Parse(typeof(DayOfWeek), scheduledTask.Frequency);
+                        
                         if (DateTime.Today.DayOfWeek != plannedDay)
                         {
                             // do not process this weekly task
                             continue;
                         }
                     }
+                }
 
                 // check time now
                 if (dtNow.Equals(dtEvent))

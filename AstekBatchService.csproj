@@ -39,16 +39,17 @@
     <SignManifests>true</SignManifests>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestCertificateThumbprint>AB9BE719A2775F52D3624777F59BF2CB75A1FAF1</ManifestCertificateThumbprint>
+    <ManifestCertificateThumbprint>C8E8BBD2B05E08173B37B2F1C3B909E6EEF036B5</ManifestCertificateThumbprint>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestKeyFile>AstekBatchService_TemporaryKey.pfx</ManifestKeyFile>
+    <ManifestKeyFile>AstekBatchService_1_TemporaryKey.pfx</ManifestKeyFile>
   </PropertyGroup>
   <PropertyGroup>
     <SignAssembly>true</SignAssembly>
   </PropertyGroup>
   <PropertyGroup>
-    <AssemblyOriginatorKeyFile>AstekBatchService_TemporaryKey.pfx</AssemblyOriginatorKeyFile>
+    <AssemblyOriginatorKeyFile>
+    </AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <PropertyGroup>
     <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
@@ -95,7 +96,7 @@
     <None Include="App.config">
       <SubType>Designer</SubType>
     </None>
-    <None Include="AstekBatchService_TemporaryKey.pfx" />
+    <None Include="AstekBatchService_1_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="ProjectInstaller.resx">
